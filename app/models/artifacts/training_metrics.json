@@ -1,0 +1,16 @@
+{
+  "efficacy": {
+    "n_rows": 60,
+    "eval_method": "leave-one-out CV",
+    "mae_systolic_mmHg": 0.171,
+    "mae_diastolic_mmHg": 0.295,
+    "note": "Labels are semi-synthetic (class-anchored + disclosed heuristic adjustment), NOT real per-compound clinical outcomes. Low LOO-CV error here reflects the model recovering a smooth, low-noise constructed function, not validated real-world predictive accuracy. See DECISIONS.md #1."
+  },
+  "side_effects": {
+    "n_rows": 14,
+    "n_labels": 30,
+    "eval_method": "leave-one-out CV (n=14 \u2014 too small for a held-out split)",
+    "mean_per_label_accuracy": 0.729,
+    "note": "14 samples, 30 labels \u2014 this is a genuinely small-data problem. Per-label accuracy is inflated by labels that are near-constant across the registry (e.g. a side effect reported for 13/14 drugs is 'accurate' even predicting the majority class). Treat this model as a smoothed lookup over structural similarity, not a validated QSAR model. Do not oversell this number."
+  }
+}

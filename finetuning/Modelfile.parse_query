@@ -1,0 +1,43 @@
+# HISTORICAL / NOT CURRENTLY USED — kept for the record, not deleted.
+#
+# This was the original plan: export the fine-tuned model to GGUF and
+# serve it via Ollama, same pattern as generate_report. Converting the
+# merged model to GGUF crashed the host machine 3 times via OOM (the
+# export's write phase spiked memory faster than any polling-based
+# safety net could reliably catch — full history in
+# finetuning/session_log/actions.log). Abandoned in favor of direct
+# in-process 4-bit inference on the already-merged model instead — see
+# app/agent/local_finetuned_model.py, which is what parse_query.py
+# actually calls. That approach is read-heavy (safe) rather than
+# write-heavy (what crashed), and was verified working end-to-end.
+#
+# If disk-space/VRAM-sharing needs ever justify revisiting Ollama serving
+# for this model, this file is a reasonable starting point, but the FROM
+# line below was never verified (the crash happened before any GGUF file
+# was successfully produced) — don't trust the filename without checking
+# `ls parse_query_gguf/*.gguf` first.
+FROM ./parse_query_gguf/unsloth.Q4_K_M.gguf
+
+# This MUST match the chat template used in train_qlora.py's
+# tokenizer.apply_chat_template() call - Qwen2.5-Instruct uses ChatML.
+# If you swap base models (e.g. to Llama 3.1), you MUST change this to
+# match that model's template instead, or training and serving will
+# silently disagree and output quality will degrade in a way that's
+# easy to misdiagnose as "the fine-tune didn't work."
+TEMPLATE """{{ if .System }}<|im_start|>system
+{{ .System }}<|im_end|>
+{{ end }}{{ if .Prompt }}<|im_start|>user
+{{ .Prompt }}<|im_end|>
+{{ end }}<|im_start|>assistant
+{{ .Response }}<|im_end|>"""
+
+PARAMETER stop "<|im_end|>"
+PARAMETER temperature 0.1
+# Low temperature deliberately - this is a structured-extraction task,
+# not creative generation. You want the model to be consistent, not
+# varied. Contrast this with generate_report's Modelfile, which should
+# run noticeably higher (0.6-0.8) since report prose benefits from some
+# variation and shouldn't read as robotic/repetitive.
+
+# Build with: ollama create parse-query-ft -f Modelfile
+# Test with:  ollama run parse-query-ft

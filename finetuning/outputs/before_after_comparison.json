@@ -1,0 +1,2518 @@
+{
+  "base_model": {
+    "summary": {
+      "label": "base_model",
+      "n": 30,
+      "valid_json_rate": 0.9666666666666667,
+      "schema_valid_rate": 0.43333333333333335,
+      "exact_field_match_rate": 0.3
+    },
+    "results": [
+      {
+        "user_query": "How effective would this be? Evaluating irbesartan for a 36-year-old F, roughly 102.4kg, BP 137/85, with chronic kidney disease.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "irbesartan",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 36,
+              "sex": "female",
+              "weight_kg": 102.4,
+              "baseline": {
+                "systolic_bp": 137,
+                "diastolic_bp": 85,
+                "heart_rate": 78,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "chronic_kidney_disease"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "baseline.heart_rate"
+            ]
+          },
+          "question_intent": "efficacy"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"irbesartan\", \"dose_mg\": null}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 36, \"sex\": \"female\", \"weight_kg\": 102.4,\n      \"baseline\": {\n        \"systolic_bp\": 137, \"diastolic_bp\": 85, \"heart_rate\": null,\n        \"egfr\": null, \"serum_potassium\": null\n      },\n      \"comorbiditiesities\": [\"chronic_kidney_disease\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"age\", \"baseline.heart_rate\", \"baseline.egfr\", \"baseline.serum_potassium\"]\n  },\n  \"question_intent\": \"efficacy\"\n}",
+        "valid_json": true,
+        "schema_valid": false,
+        "exact_field_match": false,
+        "schema_error": "3 validation errors for ParseResult\nparsed_patient.patient.baseline.heart_rate\n  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nparsed_patient.patient.baseline.serum_potassium\n  I"
+      },
+      {
+        "user_query": "Can you assess this regimen? Evaluating chlorthalidone and nifedipine for a male in their 60s, BP reading 113 over 74.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "chlorthalidone",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "nifedipine",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 62,
+              "sex": "male",
+              "weight_kg": 80,
+              "baseline": {
+                "systolic_bp": 113,
+                "diastolic_bp": 74,
+                "heart_rate": 76,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "weight_kg"
+            ]
+          },
+          "question_intent": "general"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"chlorthalidone\", \"dose_mg\": null}, {\"raw_name\": \"nifedipine\", \"d dose_mg\": null}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 60, \"sex\": \"male\", \"weight_kg\": null,\n      \"baseline\": {\n        \"systolic_bp\": 113, \"diastolic_bp\": 74, \"heart_rate\": null,\n        \"egfr\": 90, \"serum_potassium\": null\n      },\n      \"comorbiditiesies\": [\"none\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"weight_kg\", \"heart_rate\", \"egfr\"]\n  },\n  \"question_intent\": \"general\"\n}",
+        "valid_json": true,
+        "schema_valid": false,
+        "exact_field_match": false,
+        "schema_error": "3 validation errors for ParseResult\nparsed_patient.patient.weight_kg\n  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nparsed_patient.patient.baseline.heart_rate\n  Input should be "
+      },
+      {
+        "user_query": "Talk me through this case? What if I prescribed hydrochlorothiazide and atenoolol to a 82-year-old F weighing 105.2kg, BP 121/78, heart rate 59.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "hydrochlorothiazide",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "atenoolol",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 82,
+              "sex": "female",
+              "weight_kg": 105.2,
+              "baseline": {
+                "systolic_bp": 121,
+                "diastolic_bp": 78,
+                "heart_rate": 59,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "general"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"hydrochlorothiazide\", \"dose_mg\": null}, {\"raw_name\": \"atenoolol\", \"dose_mg\": null}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 82, \"sex\": \"female\", \"weight_kg\": 105.2,\n      \"baseline\": {\n        \"systolic_bp\": 121, \"diastolic_bp\": 78, \"heart_rate\": 59,\n        \"egfr\": 90, \"serum_potassium\": 4.2\n      },\n      \"comorbiditiesities\": [\"none\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"age\", \"sex\", \"weight_kg\", \"baseline.egfr\"]\n  },\n  \"question_intent\": \"general\"\n}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "What would happen if I gave this? indapamide and bisoprolol - would this work for 44 year old female, current vitals 146/98 mmHg, with HF.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "indapamide",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "bisoprolol",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 44,
+              "sex": "female",
+              "weight_kg": 100.9,
+              "baseline": {
+                "systolic_bp": 146,
+                "diastolic_bp": 98,
+                "heart_rate": 78,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "heart_failure"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "baseline.heart_rate"
+            ]
+          },
+          "question_intent": "general"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"indapamide\", \"dose_mg\": null}, {\"raw_name\": \"bisoprolol\", \"d dose_mg\": null}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 44, \"sex\": \"female\", \"weight_kg\": 80,\n      \"baseline\": {\n        \"systolic_bp\": 146, \"diastolic_bp\": 98, \"heart_rate\": 78,\n        \"egfr\": 90, \"serum_potassium\": 4.2\n      },\n      \"comorbiditiesities\": [\"heart_failure\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"weight_kg\"]\n  },\n  \"question_intent\": \"efficacy\"\n}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": false
+      },
+      {
+        "user_query": "How effective would this be? Evaluating losartan and hydrochlorothiazide 2mg for a 55-year-old F, BP 157/97, heart rate 79.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "losartan",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "hydrochlorothiazide",
+              "dose_mg": 2
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 55,
+              "sex": "female",
+              "weight_kg": 80,
+              "baseline": {
+                "systolic_bp": 157,
+                "diastolic_bp": 97,
+                "heart_rate": 79,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "weight_kg"
+            ]
+          },
+          "question_intent": "efficacy"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"losartan\", \"dose_mg\": null}, {\"raw_name\": \"hydrochlorothiazide\", \"dose_mg\": 2}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 55, \"sex\": \"female\", \"weight_kg\": 80,\n      \"baseline\": {\n        \"systolic_bp\": 157, \"diastolic_bp\": 97, \"heart_rate\": 79,\n        \"egfr\": 90, \"serum_potassium\": 4.2\n      },\n      \"comorbiditiesities\": [\"none\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"weight_kg\"]\n  },\n  \"question_intent\": \"efficacy\"\n}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "Any safety concerns? Evaluating enalapril 20mg and chlorthalidone 40mg for patient: 48yo M weighing 81.9kg, presenting with BP of 131/84, pulse 96, with asthma.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "enalapril",
+              "dose_mg": 20
+            },
+            {
+              "raw_name": "chlorthalidone",
+              "dose_mg": 40
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 48,
+              "sex": "male",
+              "weight_kg": 81.9,
+              "baseline": {
+                "systolic_bp": 131,
+                "diastolic_bp": 84,
+                "heart_rate": 96,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "asthma_copd"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "side_effects"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"enalapril\", \"dose_mg\": 2}, {\"raw_name\": \"chlorthalidone\", \"dose_mg\": 40}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 48, \"sex\": \"male\", \"weight_kg\": 81.9,\n      \"baseline\": {\n        \"systolic_bp\": 131, \"diastolic_bp\": 84, \"heart_rate\": 96,\n        \"egfr\": 90, \"serum_potassium\": 4.2\n      },\n      \"comorbiditiesities\": [\"asthma\"]\n    },\n    \"defaulted_fields\": [\"age\", \"sex\", \"weight_kg\", \"baseline.heart_rate\", \"baseline.egfr\"]\n  },\n  \"question_intent\": \"side_effects\"\n}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "Is this better than the usual combo? I'm considering valsartan and dltiazem 50mg for a 42-year-old F weighing 63.5kg, BP 144/96, pulse 86.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "valsartan",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "dltiazem",
+              "dose_mg": 50
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 42,
+              "sex": "female",
+              "weight_kg": 63.5,
+              "baseline": {
+                "systolic_bp": 144,
+                "diastolic_bp": 96,
+                "heart_rate": 86,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "compare_to_standard"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"valsartan\", \"dose_mg\": null}, {\"raw_name\": \"dltiazem\", \"dose_mg\": 50}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 42, \"sex\": \"female\", \"weight_kg\": 63.5,\n      \"baseline\": {\n        \"systolic_bp\": 144, \"diastolic_bp\": 96, \"heart_rate\": 86,\n        \"egfr\": 90, \"serum_potassium\": 4.2\n      },\n      \"comorbiditiesities\": [\"none\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"age\", \"sex\", \"weight_kg\", \"baseline.egfr\"]\n  },\n  \"question_intent\": \"compare_to_standard\"\n}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "Can you assess this regimen? rampiril - would this work for 55 year old male, current vitals 151/94 mmHg and HR 74, with heart failure and COPD.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "rampiril",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 55,
+              "sex": "male",
+              "weight_kg": 57.3,
+              "baseline": {
+                "systolic_bp": 151,
+                "diastolic_bp": 94,
+                "heart_rate": 74,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "heart_failure",
+                "asthma_copd"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "general"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"rampiril\", \"dose_mg\": null}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 55, \"sex\": \"male\", \"weight_kg\": 80,\n      \"baseline\": {\n        \"systolic_bp\": 151, \"diastolic_bp\": 94, \"heart_rate\": 74,\n        \"egfr\": 90, \"serum_potassium\": 4.2\n      },\n      \"comorbiditiesities\": [\"heart_failure\", \"asthma_copd\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"weight_kg\"]\n  },\n  \"question_intent\": \"efficacy\"\n}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": false
+      },
+      {
+        "user_query": "What side effects should I watch for? inndapamide and metoprolol - would this work for patient: 35yo F weighing 95.2kg, presenting with BP of 116/88, heart rate 83, with a history of heart failure.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "inndapamide",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "metoprolol",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 35,
+              "sex": "female",
+              "weight_kg": 95.2,
+              "baseline": {
+                "systolic_bp": 116,
+                "diastolic_bp": 88,
+                "heart_rate": 83,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "heart_failure"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "side_effects"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"inndapamide\", \"d\": null}, {\"raw_name\": \"metoprolol\", \"dose_mg\": null}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 35, \"sex\": \"female\", \"weight_kg\": 95.2,\n      \"baseline\": {\n        \"systolic_bp\": 116, \"diastolic_bp\": 88, \"heart_rate\": 83,\n        \"egfr\": 90, \"serum_potassium\": 4.2\n      },\n      \"comorbiditiesities\": [\"heart_failure\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"weight_kg\"]\n  },\n  \"question_intent\": \"side_effects\"\n}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "What side effects should I watch for? Evaluating metoprlool for a 78-year-old F, BP 126/82 and HR 59.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "metoprlool",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 78,
+              "sex": "female",
+              "weight_kg": 80,
+              "baseline": {
+                "systolic_bp": 126,
+                "diastolic_bp": 82,
+                "heart_rate": 59,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "weight_kg"
+            ]
+          },
+          "question_intent": "side_effects"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"metoprlool\", \"dose_mg\": null}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 78, \"sex\": \"female\", \"weight_kg\": null,\n      \"baseline\": {\n        \"systolic_bp\": 126, \"diastolic_bp\": 82, \"heart_rate\": 59,\n        \"egfr\": null, \"serum_potassium\": null\n      },\n      \"comorbiditiesities\": [\"none\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"weight_kg\", \"baseline.egfr\", \"baseline.serum_potassium\"]\n  },\n  \"question_intent\": \"side_effects\"\n}",
+        "valid_json": true,
+        "schema_valid": false,
+        "exact_field_match": false,
+        "schema_error": "3 validation errors for ParseResult\nparsed_patient.patient.weight_kg\n  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nparsed_patient.patient.baseline.serum_potassium\n  Input shoul"
+      },
+      {
+        "user_query": "Any safety concerns? Evaluating chlorthalidone 20mg and bisoprolol for a 50-year-old M, BP 117/79, heart rate 57.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "chlorthalidone",
+              "dose_mg": 20
+            },
+            {
+              "raw_name": "bisoprolol",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 50,
+              "sex": "male",
+              "weight_kg": 80,
+              "baseline": {
+                "systolic_bp": 117,
+                "diastolic_bp": 79,
+                "heart_rate": 57,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "weight_kg"
+            ]
+          },
+          "question_intent": "side_effects"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"chlorthalidone\", \"dose_mg\": 2}, {\"raw_name\": \"bisoprolol\", \"dose_mg\": 2}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 50, \"sex\": \"male\", \"weight_kg\": null,\n      \"baseline\": {\n        \"systolic_bp\": 117, \"diastolic_bp\": 79, \"heart_rate\": 57,\n        \"egfr\": 90, \"serum_potassium\": null\n      },\n      \"comorbiditiesities\": [\"none\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"weight_kg\", \"baseline.egfr\"]\n  },\n  \"question_intent\": \"general\"\n}",
+        "valid_json": true,
+        "schema_valid": false,
+        "exact_field_match": false,
+        "schema_error": "2 validation errors for ParseResult\nparsed_patient.patient.weight_kg\n  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nparsed_patient.patient.baseline.serum_potassium\n  Input shoul"
+      },
+      {
+        "user_query": "Will this control their BP? Evaluating ramipril and hydrochlorothiazide for a female in their 60s weighing 100.9kg, BP reading 130 over 93.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "ramipril",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "hydrochlorothiazide",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 62,
+              "sex": "female",
+              "weight_kg": 100.9,
+              "baseline": {
+                "systolic_bp": 130,
+                "diastolic_bp": 93,
+                "heart_rate": 78,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "baseline.heart_rate"
+            ]
+          },
+          "question_intent": "efficacy"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"ramipril\", \"dose_mg\": null}, {\"raw_name\": \"hydrochlorothiazide\", \"dose_mg\": null}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 60, \"sex\": \"female\", \"weight_kg\": 100.9,\n      \"baseline\": {\n        \"systolic_bp\": 130, \"diastolic_bp\": 93, \"heart_rate\": null,\n        \"egfr\": null, \"serum_potassium\": null\n      },\n      \"comorbiditiesitiess\": [\"none\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"age\", \"weight_kg\", \"baseline.heart_rate\", \"baseline.egfr\", \"baseline.serum_potassium\"]\n  },\n  \"question_intent\": \"efficacy\"\n}",
+        "valid_json": true,
+        "schema_valid": false,
+        "exact_field_match": false,
+        "schema_error": "3 validation errors for ParseResult\nparsed_patient.patient.baseline.heart_rate\n  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nparsed_patient.patient.baseline.serum_potassium\n  I"
+      },
+      {
+        "user_query": "Is this better than the usual combo? losartan and amldoipine 2mg - would this work for 69 year old male, current vitals 148/93 mmHg and HR 74.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "losartan",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "amldoipine",
+              "dose_mg": 2
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 69,
+              "sex": "male",
+              "weight_kg": 57.3,
+              "baseline": {
+                "systolic_bp": 148,
+                "diastolic_bp": 93,
+                "heart_rate": 74,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "compare_to_standard"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"losartan and amldoipine\", \"d\": null}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 69, \"sex\": \"male\", \"weight_kg\": 80,\n      \"baseline\": {\n        \"systolic_bp\": 148, \"diastolic_bp\": 93, \"heart_rate\": 74,\n        \"egfr\": 90, \"serum_potassium\": 4.2\n      },\n      \"comorbiditiesities\": [\"none\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"weight_kg\"]\n  },\n  \"question_intent\": \"general\"\n}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": false
+      },
+      {
+        "user_query": "What blood pressure reduction can I expect? lisinopril 5mg - would this work for a male in their 70s, roughly 55.1kg, BP reading 164 over 102, with reduced kidney function and a history of heart failure.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "lisinopril",
+              "dose_mg": 5
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 73,
+              "sex": "male",
+              "weight_kg": 55.1,
+              "baseline": {
+                "systolic_bp": 164,
+                "diastolic_bp": 102,
+                "heart_rate": 67,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "chronic_kidney_disease",
+                "heart_failure"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "efficacy"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"lisinopril\", \"dmg\": 5}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 70, \"sex\": \"male\", \"weight_kg\": 55.1,\n      \"baseline\": {\n        \"systolic_bp\": 164, \"diastolic_bp\": 102, \"heart_rate\": 78,\n        \"egfr\": null, \"serum_potassium\": null\n      },\n      \"comorbiditiesities\": [\"heart_failure\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"baseline.egfr\", \"baseline.serum_potassium\"]\n  },\n  \"question_intent\": \"efficacy\"\n}",
+        "valid_json": true,
+        "schema_valid": false,
+        "exact_field_match": false,
+        "schema_error": "2 validation errors for ParseResult\nparsed_patient.patient.baseline.serum_potassium\n  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nparsed_patient.patient.baseline.egfr\n  Input s"
+      },
+      {
+        "user_query": "What side effects should I watch for? I'm considering indapamide for a female in their 30s weighing 55.9kg, BP reading 140 over 99.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "indapamide",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 35,
+              "sex": "female",
+              "weight_kg": 55.9,
+              "baseline": {
+                "systolic_bp": 140,
+                "diastolic_bp": 99,
+                "heart_rate": 78,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "baseline.heart_rate"
+            ]
+          },
+          "question_intent": "side_effects"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"indapamide\", \"dose_mg\": null}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 35, \"sex\": \"female\", \"weight_kg\": 55.9,\n      \"baseline\": {\n        \"systolic_bp\": 140, \"diastolic_bp\": 99, \"heart_rate\": 78,\n        \"egfr\": 90, \"serum_potassium\": 4.2\n      },\n      \"comorbiditiesities\": [\"none\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"age\"]\n  },\n  \"question_intent\": \"side_effects\"\n}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "Can you assess this regimen? ramipril 25mg and losartan - would this work for a 43-year-old M weighing 59.5kg, BP 140/100.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "ramipril",
+              "dose_mg": 25
+            },
+            {
+              "raw_name": "losartan",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 43,
+              "sex": "male",
+              "weight_kg": 59.5,
+              "baseline": {
+                "systolic_bp": 140,
+                "diastolic_bp": 100,
+                "heart_rate": 78,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "baseline.heart_rate"
+            ]
+          },
+          "question_intent": "general"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"ramipril\", \"dose_mg\": 2}, {\"raw_name\": \"losartan\", \"dose_mg\": null}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 43, \"sex\": \"male\", \"weight_kg\": 59.5,\n      \"baseline\": {\n        \"systolic_bp\": 140, \"diastolic_bp\": 100, \"heart_rate\": null,\n        \"egfr\": null, \"serum_potassium\": null\n      },\n      \"comorbiditiesities\": [\"none\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"baseline.heart_rate\", \"baseline.egfr\"]\n  },\n  \"question_intent\": \"general\"\n}",
+        "valid_json": true,
+        "schema_valid": false,
+        "exact_field_match": false,
+        "schema_error": "3 validation errors for ParseResult\nparsed_patient.patient.baseline.heart_rate\n  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nparsed_patient.patient.baseline.serum_potassium\n  I"
+      },
+      {
+        "user_query": "Is this better than the usual combo? I'm considering valsartan 40mg and indpaamide 2mg for a 54-year-old F weighing 82.2kg, BP 146/103, heart rate 60, with CKD and COPD.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "valsartan",
+              "dose_mg": 40
+            },
+            {
+              "raw_name": "indpaamide",
+              "dose_mg": 2
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 54,
+              "sex": "female",
+              "weight_kg": 82.2,
+              "baseline": {
+                "systolic_bp": 146,
+                "diastolic_bp": 103,
+                "heart_rate": 60,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "chronic_kidney_disease",
+                "asthma_copd"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "compare_to_standard"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"valsartan 40mg\", \"dose_mg\": 40}, {\"raw_name\": \"indapamide 22mg\", \"dose_mg\": 2}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 54, \"sex\": \"female\", \"weight_kg\": 82.2,\n      \"baseline\": {\n        \"systolic_bp\": 146, \"diastolic_bp\": 103, \"heart_rate\": 60,\n        \"egfr\": null, \"serum_potassium\": null\n      },\n      \"comorbiditiesities\": [\"chronic_kidney_disease\", \"asthma_copd\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"baseline.egfr\", \"baseline.serum_potassium\"]\n  },\n  \"question_intent\": \"compare_to_standard\"\n}",
+        "valid_json": true,
+        "schema_valid": false,
+        "exact_field_match": false,
+        "schema_error": "2 validation errors for ParseResult\nparsed_patient.patient.baseline.serum_potassium\n  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nparsed_patient.patient.baseline.egfr\n  Input s"
+      },
+      {
+        "user_query": "What blood pressure reduction can I expect? Evaluating diltiazem for patient: 85yo M, presenting with BP of 98/73, with diabetic.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "diltiazem",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 85,
+              "sex": "male",
+              "weight_kg": 80,
+              "baseline": {
+                "systolic_bp": 98,
+                "diastolic_bp": 73,
+                "heart_rate": 78,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "type2_diabetes"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "weight_kg",
+              "baseline.heart_rate"
+            ]
+          },
+          "question_intent": "efficacy"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"diltiazem\", \"dose_mg\": null}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 85, \"sex\": \"male\", \"weight_kg\": null,\n      \"baseline\": {\n        \"systolic_bp\": 98, \"diastolic_bp\": 73, \"heart_rate\": null,\n        \"egfr\": null, \"serum_potassium\": null\n      },\n      \"comorbiditiesities\": [\"type2_diabetes\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"weight_kg\", \"baseline.heart_rate\", \"baseline.egfr\"]\n  },\n  \"question_intent\": \"efficacy\"\n}",
+        "valid_json": true,
+        "schema_valid": false,
+        "exact_field_match": false,
+        "schema_error": "4 validation errors for ParseResult\nparsed_patient.patient.weight_kg\n  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nparsed_patient.patient.baseline.heart_rate\n  Input should be "
+      },
+      {
+        "user_query": "Is this better than the usual combo? Evaluating diltiazem for a 58-year-old F, 93.2kg, BP 141/102 and HR 57.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "diltiazem",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 58,
+              "sex": "female",
+              "weight_kg": 93.2,
+              "baseline": {
+                "systolic_bp": 141,
+                "diastolic_bp": 102,
+                "heart_rate": 57,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "compare_to_standard"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"diltiazem\", \"dose_mg\": null}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 58, \"sex\": \"female\", \"weight_kg\": 93.2,\n      \"baseline\": {\n        \"systolic_bp\": 141, \"diastolic_bp\": 102, \"heart_rate\": 57,\n        \"egfr\": null, \"serum_potassium\": null\n      },\n      \"comorbiditiesities\": [\"none\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"baseline.egfr\", \"baseline.serum_potassium\"]\n  },\n  \"question_intent\": \"efficacy\"\n}",
+        "valid_json": true,
+        "schema_valid": false,
+        "exact_field_match": false,
+        "schema_error": "2 validation errors for ParseResult\nparsed_patient.patient.baseline.serum_potassium\n  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nparsed_patient.patient.baseline.egfr\n  Input s"
+      },
+      {
+        "user_query": "What are the risks? What if I prescribed valsarttan 50mg to patient: 44yo M, presenting with BP of 135/97, heart rate 72, with chronic kidney disease.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "valsarttan",
+              "dose_mg": 50
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 44,
+              "sex": "male",
+              "weight_kg": 80,
+              "baseline": {
+                "systolic_bp": 135,
+                "diastolic_bp": 97,
+                "heart_rate": 72,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "chronic_kidney_disease"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "weight_kg"
+            ]
+          },
+          "question_intent": "side_effects"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"valsarttan\", \"dose_mg\": 50}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 44, \"sex\": \"male\", \"weight_kg\": null,\n      \"baseline\": {\n        \"systolic_bp\": 135, \"diastolic_bp\": 97, \"heart_rate\": 72,\n        \"egfr\": null, \"serum_potassium\": null\n      },\n      \"comorbiditiesies\": [\"chronic_kidney_disease\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"weight_kg\", \"baseline.egfr\", \"baseline.serum_potassium\"]\n  },\n  \"question_intent\": \"side_effects\"\n}",
+        "valid_json": true,
+        "schema_valid": false,
+        "exact_field_match": false,
+        "schema_error": "3 validation errors for ParseResult\nparsed_patient.patient.weight_kg\n  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nparsed_patient.patient.baseline.serum_potassium\n  Input shoul"
+      },
+      {
+        "user_query": "What are the risks? What if I prescribed chlorthalidone and irbesartan to patient: 57yo F, presenting with BP of 162/100.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "chlorthalidone",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "irbesartan",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 57,
+              "sex": "female",
+              "weight_kg": 80,
+              "baseline": {
+                "systolic_bp": 162,
+                "diastolic_bp": 100,
+                "heart_rate": 78,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "weight_kg",
+              "baseline.heart_rate"
+            ]
+          },
+          "question_intent": "side_effects"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"chlorthalidone\", \"dose_mg\": null}, {\"raw_name\": \"irbesartan\", \"d",
+        "valid_json": false,
+        "schema_valid": false,
+        "exact_field_match": false
+      },
+      {
+        "user_query": "How does this compare to standard first-line therapy? Evaluating indapamide and losartan 20mg for a 73-year-old M, 88.3kg, BP 120/79, heart rate 89.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "indapamide",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "losartan",
+              "dose_mg": 20
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 73,
+              "sex": "male",
+              "weight_kg": 88.3,
+              "baseline": {
+                "systolic_bp": 120,
+                "diastolic_bp": 79,
+                "heart_rate": 89,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "compare_to_standard"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"indapamide\", \"dose_mg\": null}, {\"raw_name\": \"losartan\", \"dose_mg\": 2}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 73, \"sex\": \"male\", \"weight_kg\": 88.3,\n      \"baseline\": {\n        \"systolic_bp\": 120, \"diastolic_bp\": 79, \"heart_rate\": 89\n      },\n      \"comorbiditiesities\": [\"none\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"age\", \"sex\", \"weight_kg\"]\n  },\n  \"question_intent\": \"compare_to_standard\"\n}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "Is this better than the usual combo? What if I prescribed enalapril to a female in their 40s, 67.1kg, BP reading 149 over 105.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "enalapril",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 43,
+              "sex": "female",
+              "weight_kg": 67.1,
+              "baseline": {
+                "systolic_bp": 149,
+                "diastolic_bp": 105,
+                "heart_rate": 56,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "compare_to_standard"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"enalapril\", \"dose_mg\": null}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 45, \"sex\": \"female\", \"weight_kg\": 67.1,\n      \"baseline\": {\n        \"systolic_bp\": 149, \"diastolic_bp\": 105, \"heart_rate\": null,\n        \"egfr\": 90, \"serum_potassium\": 4.2\n      },\n      \"comorbiditiesities\": [\"none\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"age\", \"baseline.heart_rate\"]\n  },\n  \"question_intent\": \"compare_to_standard\"\n}",
+        "valid_json": true,
+        "schema_valid": false,
+        "exact_field_match": false,
+        "schema_error": "1 validation error for ParseResult\nparsed_patient.patient.baseline.heart_rate\n  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type"
+      },
+      {
+        "user_query": "What side effects should I watch for? losartan 20mg - would this work for 76 year old female, current vitals 148/96 mmHg, heart rate 55, with asthma.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "losartan",
+              "dose_mg": 20
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 76,
+              "sex": "female",
+              "weight_kg": 102.1,
+              "baseline": {
+                "systolic_bp": 148,
+                "diastolic_bp": 96,
+                "heart_rate": 55,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "asthma_copd"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "side_effects"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"losartan\", \"dose_mg\": 2}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 76, \"sex\": \"female\", \"weight_kg\": null,\n      \"baseline\": {\n        \"systolic_bp\": 148, \"diastolic_bp\": 96, \"heart_rate\": 55,\n        \"egfr\": null, \"serum_potassium\": null\n      },\n      \"comorbiditiesities\": [\"asthma\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"weight_kg\", \"baseline.egfr\", \"baseline.serum_potassium\"]\n  },\n  \"question_intent\": \"side_effects\"\n}",
+        "valid_json": true,
+        "schema_valid": false,
+        "exact_field_match": false,
+        "schema_error": "3 validation errors for ParseResult\nparsed_patient.patient.weight_kg\n  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nparsed_patient.patient.baseline.serum_potassium\n  Input shoul"
+      },
+      {
+        "user_query": "What would happen if I gave this? What if I prescribed irbeartan and nifedpiine to 74 year old female, current vitals 106/72 mmHg and HR 62.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "irbeartan",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "nifedpiine",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 74,
+              "sex": "female",
+              "weight_kg": 93.2,
+              "baseline": {
+                "systolic_bp": 106,
+                "diastolic_bp": 72,
+                "heart_rate": 62,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "general"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"irbeartan\", \"dose_mg\": null}, {\"raw_name\": \"nifedpiine\", \"dose_mg\": null}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 74, \"sex\": \"female\", \"weight_kg\": null,\n      \"baseline\": {\n        \"systolic_bp\": 106, \"diastolic_bp\": 72, \"heart_rate\": 62,\n        \"egfr\": 90, \"serum_potassium\": null\n      },\n      \"comorbiditiesities\": [\"none\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"weight_kg\", \"baseline.egfr\"]\n  },\n  \"question_intent\": \"efficacy\"\n}",
+        "valid_json": true,
+        "schema_valid": false,
+        "exact_field_match": false,
+        "schema_error": "2 validation errors for ParseResult\nparsed_patient.patient.weight_kg\n  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nparsed_patient.patient.baseline.serum_potassium\n  Input shoul"
+      },
+      {
+        "user_query": "Can you assess this regimen? Evaluating hydrochlorothiazide and amlodipine for patient: 81yo M, presenting with BP of 158/94 and HR 66, with HF.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "hydrochlorothiazide",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "amlodipine",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 81,
+              "sex": "male",
+              "weight_kg": 80,
+              "baseline": {
+                "systolic_bp": 158,
+                "diastolic_bp": 94,
+                "heart_rate": 66,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "heart_failure"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "weight_kg"
+            ]
+          },
+          "question_intent": "general"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"hydrochlorothiazide\", \"dose_mg\": null}, {\"raw_name\": \"amlodipine\", \"dose_mg\": null}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 81, \"sex\": \"male\", \"weight_kg\": null,\n      \"baseline\": {\n        \"systolic_bp\": 158, \"diastolic_bp\": 94, \"heart_rate\": 66,\n        \"egfr\": null, \"serum_potassium\": null\n      },\n      \"comorbiditiesities\": [\"heart_failure\"]\n    },\n    \"defaulted_fields\": [\"weight_kg\", \"baseline.egfr\", \"baseline.serum_potassium\"]\n  },\n  \"question_intent\": \"general\"\n}",
+        "valid_json": true,
+        "schema_valid": false,
+        "exact_field_match": false,
+        "schema_error": "3 validation errors for ParseResult\nparsed_patient.patient.weight_kg\n  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nparsed_patient.patient.baseline.serum_potassium\n  Input shoul"
+      },
+      {
+        "user_query": "What are the risks? I'm considering losartan and indapamide for a 46-year-old M, BP 118/78 and HR 65.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "losartan",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "indapamide",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 46,
+              "sex": "male",
+              "weight_kg": 80,
+              "baseline": {
+                "systolic_bp": 118,
+                "diastolic_bp": 78,
+                "heart_rate": 65,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "weight_kg"
+            ]
+          },
+          "question_intent": "side_effects"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"losartan\", \"dose_mg\": null}, {\"raw_name\": \"indapamide\", \"dose_mg\": null}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 46, \"sex\": \"male\", \"weight_kg\": null,\n      \"baseline\": {\n        \"systolic_bp\": 118, \"diastolic_bp\": 78, \"heart_rate\": 65,\n        \"egfr\": 90, \"serum_potassium\": null\n      },\n      \"comorbiditiesities\": [\"none\"]\n    },\n    \"defaulted_fields\": [\"weight_kg\", \"serum_potassium\"]\n  },\n  \"question_intent\": \"side_effects\"\n}",
+        "valid_json": true,
+        "schema_valid": false,
+        "exact_field_match": false,
+        "schema_error": "2 validation errors for ParseResult\nparsed_patient.patient.weight_kg\n  Input should be a valid number [type=float_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nparsed_patient.patient.baseline.serum_potassium\n  Input shoul"
+      },
+      {
+        "user_query": "Is this better than the usual combo? I'm considering irbesartan 50mg and nifedipine 25mg for patient: 82yo F, roughly 61.4kg, presenting with BP of 138/80, heart rate 71.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "irbesartan",
+              "dose_mg": 50
+            },
+            {
+              "raw_name": "nifedipine",
+              "dose_mg": 25
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 82,
+              "sex": "female",
+              "weight_kg": 61.4,
+              "baseline": {
+                "systolic_bp": 138,
+                "diastolic_bp": 80,
+                "heart_rate": 71,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "compare_to_standard"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"irbesartan\", \"dose_mg\": 50}, {\"raw_name\": \"nifedipine\", \"dose_mg\": 22}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 82, \"sex\": \"female\", \"weight_kg\": 61.4,\n      \"baseline\": {\n        \"systolic_bp\": 138, \"diastolic_bp\": 80, \"heart_rate\": 71,\n        \"egfr\": 90, \"serum_potassium\": 4.2\n      },\n      \"comorbiditiesities\": [\"none\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"baseline.egfr\"]\n  },\n  \"question_intent\": \"compare_to_standard\"\n}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "Talk me through this case? enalapril 2mg and hydrochlorothiazide 20mg - would this work for a male in their 60s, 103.4kg, BP reading 138 over 92.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "enalapril",
+              "dose_mg": 2
+            },
+            {
+              "raw_name": "hydrochlorothiazide",
+              "dose_mg": 20
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 64,
+              "sex": "male",
+              "weight_kg": 103.4,
+              "baseline": {
+                "systolic_bp": 138,
+                "diastolic_bp": 92,
+                "heart_rate": 61,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "general"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"enalapril\", \"dmg\": 2}, {\"raw_name\": \"hydrochlorothiazide\", \"dose_mg\": 20}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 60, \"sex\": \"male\", \"weight_kg\": 103.4,\n      \"baseline\": {\n        \"systolic_bp\": 138, \"diastolic_bp\": 92, \"heart_rate\": 78,\n        \"egfr\": 90, \"serum_potassium\": 4.2\n      },\n      \"comorbiditiesities\": [\"none\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"baseline.heart_rate\", \"baseline.egfr\"]\n  },\n  \"question_intent\": \"efficacy\"\n}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": false
+      },
+      {
+        "user_query": "What would happen if I gave this? I'm considering ramipril and amlodipine for a 58-year-old M, 58.2kg, BP 105/77, heart rate 88.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "ramipril",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "amlodipine",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 58,
+              "sex": "male",
+              "weight_kg": 58.2,
+              "baseline": {
+                "systolic_bp": 105,
+                "diastolic_bp": 77,
+                "heart_rate": 88,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "general"
+        },
+        "generated_raw": "{\n  \"compounds\": [{\"raw_name\": \"ramipril\", \"dose_mg\": null}, {\"raw_name\": \"amlodipine\", \"dose_mg\": null}],\n  \"parsed_patient\": {\n    \"patient\": {\n      \"age\": 58, \"sex\": \"male\", \"weight_kg\": 58.2,\n      \"baseline\": {\n        \"systolic_bp\": 105, \"diastolic_bp\": 77, \"heart_rate\": 88,\n        \"egfr\": 90, \"serum_potassium\": 4.2\n      },\n      \"comorbiditiesies\": [\"none\"],\n      \"current_medications\": []\n    },\n    \"defaulted_fields\": [\"baseline.egfr\"]\n  },\n  \"question_intent\": \"general\"\n}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      }
+    ]
+  },
+  "finetuned_model": {
+    "summary": {
+      "label": "finetuned_model",
+      "n": 30,
+      "valid_json_rate": 0.8,
+      "schema_valid_rate": 0.8,
+      "exact_field_match_rate": 0.6333333333333333
+    },
+    "results": [
+      {
+        "user_query": "How effective would this be? Evaluating irbesartan for a 36-year-old F, roughly 102.4kg, BP 137/85, with chronic kidney disease.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "irbesartan",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 36,
+              "sex": "female",
+              "weight_kg": 102.4,
+              "baseline": {
+                "systolic_bp": 137,
+                "diastolic_bp": 85,
+                "heart_rate": 78,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "chronic_kidney_disease"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "baseline.heart_rate"
+            ]
+          },
+          "question_intent": "efficacy"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"irbesartan\",\"dose_mg\":null}],\"parsed_patient\":{\"patient\":{\"age\":36,\"sex\":\"female\",\"weight_kg\":102.4,\"baseline\":{\"systolic_bp\":137,\"diastolic_bp\":85,\"heart_rate\":78,\"egfr\":90,\"serum_potassium\":4.2},\"comorbidities\":s:\"chronic_kidney_disease\",\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\",\"baseline.heart_rate\"]},\"question_intent\":\"efficacy\"}",
+        "valid_json": false,
+        "schema_valid": false,
+        "exact_field_match": false
+      },
+      {
+        "user_query": "Can you assess this regimen? Evaluating chlorthalidone and nifedipine for a male in their 60s, BP reading 113 over 74.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "chlorthalidone",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "nifedipine",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 62,
+              "sex": "male",
+              "weight_kg": 80,
+              "baseline": {
+                "systolic_bp": 113,
+                "diastolic_bp": 74,
+                "heart_rate": 76,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "weight_kg"
+            ]
+          },
+          "question_intent": "general"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"chlorthalidone\",\"dose_mg\":null},{\"raw_name\":\"nifedipine\",\"dose_mg\":null}],\"parsed_patient\":{\"patient\":{\"age\":67,\"sex\":\"male\",\"weight_kg\":80,\"baseline\":{\"systolic_bp\":113,\"diastolic_bp\":74,\"heart_rate\":78,\"egfr\":90,\"serum_potassium\":4.2},\"comorbidities\":[],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\",\"baseline.heart_rate\"]},\"question_intent\":\"general\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": false
+      },
+      {
+        "user_query": "Talk me through this case? What if I prescribed hydrochlorothiazide and atenoolol to a 82-year-old F weighing 105.2kg, BP 121/78, heart rate 59.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "hydrochlorothiazide",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "atenoolol",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 82,
+              "sex": "female",
+              "weight_kg": 105.2,
+              "baseline": {
+                "systolic_bp": 121,
+                "diastolic_bp": 78,
+                "heart_rate": 59,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "general"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"hydrochlorothiazide\",\"dose_mg\":null},{\"raw_name\":\"atenoolol\",\"dose_mg\":null}],\"parsed_patient\":{\"patient\":{\"age\":82,\"sex\":\"female\",\"weight_kg\":105.2,\"baseline\":{\"systolic_bp\":121,\"diastolic_bp\":78,\"heart_rate\":59,\"egfr\":90,\"serum_potassium\":4.2},\"comorbiditiesities\":[\"none\"],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\"]},\"question_intent\":\"general\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "What would happen if I gave this? indapamide and bisoprolol - would this work for 44 year old female, current vitals 146/98 mmHg, with HF.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "indapamide",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "bisoprolol",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 44,
+              "sex": "female",
+              "weight_kg": 100.9,
+              "baseline": {
+                "systolic_bp": 146,
+                "diastolic_bp": 98,
+                "heart_rate": 78,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "heart_failure"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "baseline.heart_rate"
+            ]
+          },
+          "question_intent": "general"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"indapamide\",\"dose_mg\":null},{\"raw_name\":\"bisoprolol\",\"dose_mg\":null}],\"parsed_patient\":{\"patient\":{\"age\":44,\"sex\":\"female\",\"weight_kg\":80,\"baseline\":{\"systolic_bp\":146,\"diastolic_bp\":98,\"heart_rate\":78,\"egfr\":90,\"serum_potassium\":4.2},\"comorbidities\":[\"heart_failure\"],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\",\"baseline.heart_rate\"]},\"question_intent\":\"general\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "How effective would this be? Evaluating losartan and hydrochlorothiazide 2mg for a 55-year-old F, BP 157/97, heart rate 79.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "losartan",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "hydrochlorothiazide",
+              "dose_mg": 2
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 55,
+              "sex": "female",
+              "weight_kg": 80,
+              "baseline": {
+                "systolic_bp": 157,
+                "diastolic_bp": 97,
+                "heart_rate": 79,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "weight_kg"
+            ]
+          },
+          "question_intent": "efficacy"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"losartan\",\"dose_mg\":null},{\"raw_name\":\"hydrochlorothiazide\",\"dose_mg\":2}],\"parsed_patient\":{\"patient\":{\"age\":55,\"sex\":\"female\",\"weight_kg\":80,\"baseline\":{\"systolic_bp\":157,\"diastolic_bp\":97,\"heart_rate\":79,\"egfr\":90,\"serum_potassium\":4.2},\"comorbidities\":s,\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\"]},\"question_intent\":\"efficacy\"}",
+        "valid_json": false,
+        "schema_valid": false,
+        "exact_field_match": false
+      },
+      {
+        "user_query": "Any safety concerns? Evaluating enalapril 20mg and chlorthalidone 40mg for patient: 48yo M weighing 81.9kg, presenting with BP of 131/84, pulse 96, with asthma.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "enalapril",
+              "dose_mg": 20
+            },
+            {
+              "raw_name": "chlorthalidone",
+              "dose_mg": 40
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 48,
+              "sex": "male",
+              "weight_kg": 81.9,
+              "baseline": {
+                "systolic_bp": 131,
+                "diastolic_bp": 84,
+                "heart_rate": 96,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "asthma_copd"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "side_effects"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"enalapril\",\"dose_mg\":2},{\"raw_name\":\"chlorthalidone\",\"dose_mg\":40}],\"parsed_patient\":{\"patient\":{\"age\":48,\"sex\":\"male\",\"weight_kg\":81.9,\"baseline\":{\"systolic_bp\":131,\"diastolic_bp\":84,\"heart_rate\":96,\"egfr\":90,\"serum_potassium\":4.2},\"comorbiditiesities\":[\"asthma_copd\"],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\"]},\"question_intent\":\"side_effects\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "Is this better than the usual combo? I'm considering valsartan and dltiazem 50mg for a 42-year-old F weighing 63.5kg, BP 144/96, pulse 86.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "valsartan",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "dltiazem",
+              "dose_mg": 50
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 42,
+              "sex": "female",
+              "weight_kg": 63.5,
+              "baseline": {
+                "systolic_bp": 144,
+                "diastolic_bp": 96,
+                "heart_rate": 86,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "compare_to_standard"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"valsartan\",\"dose_mg\":null},{\"raw_name\":\"dltiazem\",\"dose_mg\":50}],\"parsed_patient\":{\"patient\":{\"age\":42,\"sex\":\"female\",\"weight_kg\":63.5,\"baseline\":{\"systolic_bp\":144,\"diastolic_bp\":96,\"heart_rate\":86,\"egfr\":90,\"serum_potassium\":4.2},\"comorbiditiesities\":[\"none\"],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\"]},\"question_intent\":\"compare_to_standard\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "Can you assess this regimen? rampiril - would this work for 55 year old male, current vitals 151/94 mmHg and HR 74, with heart failure and COPD.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "rampiril",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 55,
+              "sex": "male",
+              "weight_kg": 57.3,
+              "baseline": {
+                "systolic_bp": 151,
+                "diastolic_bp": 94,
+                "heart_rate": 74,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "heart_failure",
+                "asthma_copd"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "general"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"rampiril\",\"dose_mg\":null}],\"parsed_patient\":{\"patient\":{\"age\":55,\"sex\":\"male\",\"weight_kg\":65.8,\"baseline\":{\"systolic_bp\":151,\"diastolic_bp\":94,\"heart_rate\":74,\"egfr\":90,\"serum_potassium\":4.2},\"comorbiditieses\":[\"heart_failure\",\"asthma_copd\"],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\"]},\"question_intent\":\"general\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "What side effects should I watch for? inndapamide and metoprolol - would this work for patient: 35yo F weighing 95.2kg, presenting with BP of 116/88, heart rate 83, with a history of heart failure.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "inndapamide",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "metoprolol",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 35,
+              "sex": "female",
+              "weight_kg": 95.2,
+              "baseline": {
+                "systolic_bp": 116,
+                "diastolic_bp": 88,
+                "heart_rate": 83,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "heart_failure"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "side_effects"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"inndapamide\",\"dose_mg\":null},{\"raw_name\":\"metoprolol\",\"dose_mg\":null}],\"parsed_patient\":{\"patient\":{\"age\":35,\"sex\":\"female\",\"weight_kg\":95.2,\"baseline\":{\"systolic_bp\":116,\"diastolic_bp\":88,\"heart_rate\":83,\"egfr\":90,\"serum_potassium\":4.2},\"comorbiditiesities\":[\"heart_failure\"],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\"]},\"question_intent\":\"side_effects\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "What side effects should I watch for? Evaluating metoprlool for a 78-year-old F, BP 126/82 and HR 59.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "metoprlool",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 78,
+              "sex": "female",
+              "weight_kg": 80,
+              "baseline": {
+                "systolic_bp": 126,
+                "diastolic_bp": 82,
+                "heart_rate": 59,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "weight_kg"
+            ]
+          },
+          "question_intent": "side_effects"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"metoprlool\",\"dose_mg\":null}],\"parsed_patient\":{\"patient\":{\"age\":78,\"sex\":\"female\",\"weight_kg\":80,\"baseline\":{\"systolic_bp\":126,\"diastolic_bp\":82,\"heart_rate\":59,\"egfr\":90,\"serum_potassium\":4.2},\"comorbidities\":[],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\",\"weight_kg\"]},\"question_intent\":\"side_effects\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "Any safety concerns? Evaluating chlorthalidone 20mg and bisoprolol for a 50-year-old M, BP 117/79, heart rate 57.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "chlorthalidone",
+              "dose_mg": 20
+            },
+            {
+              "raw_name": "bisoprolol",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 50,
+              "sex": "male",
+              "weight_kg": 80,
+              "baseline": {
+                "systolic_bp": 117,
+                "diastolic_bp": 79,
+                "heart_rate": 57,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "weight_kg"
+            ]
+          },
+          "question_intent": "side_effects"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"chlorthalidone\",\"dose_mg\":2},{\"raw_name\":\"bisoprolol\",\"dose_mg\":null}],\"parsed_patient\":{\"patient\":{\"age\":50,\"sex\":\"male\",\"weight_kg\":80,\"baseline\":{\"systolic_bp\":117,\"diastolic_bp\":79,\"heart_rate\":57,\"egfr\":90,\"serum_potassium\":4.2},\"comorbiditiesities\":[\"none\"],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\",\"weight_kg\"]},\"question_intent\":\"side_effects\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "Will this control their BP? Evaluating ramipril and hydrochlorothiazide for a female in their 60s weighing 100.9kg, BP reading 130 over 93.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "ramipril",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "hydrochlorothiazide",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 62,
+              "sex": "female",
+              "weight_kg": 100.9,
+              "baseline": {
+                "systolic_bp": 130,
+                "diastolic_bp": 93,
+                "heart_rate": 78,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "baseline.heart_rate"
+            ]
+          },
+          "question_intent": "efficacy"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"ramipril\",\"dose_mg\":null},{\"raw_name\":\"hydrochlorothiazide\",\"dose_mg\":null}],\"parsed_patient\":{\"patient\":{\"age\":63,\"sex\":\"female\",\"weight_kg\":100.9,\"baseline\":{\"systolic_bp\":130,\"diastolic_bp\":93,\"heart_rate\":68,\"egfr\":90,\"serum_potassium\":4.2},\"comorbiditiesities\":[\"none\"],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\"]},\"question_intent\":\"efficacy\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": false
+      },
+      {
+        "user_query": "Is this better than the usual combo? losartan and amldoipine 2mg - would this work for 69 year old male, current vitals 148/93 mmHg and HR 74.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "losartan",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "amldoipine",
+              "dose_mg": 2
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 69,
+              "sex": "male",
+              "weight_kg": 57.3,
+              "baseline": {
+                "systolic_bp": 148,
+                "diastolic_bp": 93,
+                "heart_rate": 74,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "compare_to_standard"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"losartan\",\"dose_mg\":null},{\"raw_name\":\"amldoipine\",\"dose_mg\":2.2}],\"parsed_patient\":{\"patient\":{\"age\":69,\"sex\":\"male\",\"weight_kg\":55.3,\"baseline\":{\"systolic_bp\":148,\"diastolic_bp\":93,\"heart_rate\":74,\"egfr\":90,\"serum_potassium\":4.2},\"comorbiditiesities\":[\"none\"],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\"]},\"question_intent\":\"compare_to_standard\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "What blood pressure reduction can I expect? lisinopril 5mg - would this work for a male in their 70s, roughly 55.1kg, BP reading 164 over 102, with reduced kidney function and a history of heart failure.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "lisinopril",
+              "dose_mg": 5
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 73,
+              "sex": "male",
+              "weight_kg": 55.1,
+              "baseline": {
+                "systolic_bp": 164,
+                "diastolic_bp": 102,
+                "heart_rate": 67,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "chronic_kidney_disease",
+                "heart_failure"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "efficacy"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"lisinopril\",\"dose_mg\":5}],\"parsed_patient\":{\"patient\":{\"age\":70,\"sex\":\"male\",\"weight_kg\":55.1,\"baseline\":{\"systolic_bp\":164,\"diastolic_bp\":102,\"heart_rate\":65,\"egfr\":90,\"serum_potassium\":4.2},\"comorbiditiesities\":[\"chronic_kidney_disease\",\"heart_failure\"],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\"]},\"question_intent\":\"efficacy\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": false
+      },
+      {
+        "user_query": "What side effects should I watch for? I'm considering indapamide for a female in their 30s weighing 55.9kg, BP reading 140 over 99.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "indapamide",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 35,
+              "sex": "female",
+              "weight_kg": 55.9,
+              "baseline": {
+                "systolic_bp": 140,
+                "diastolic_bp": 99,
+                "heart_rate": 78,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "baseline.heart_rate"
+            ]
+          },
+          "question_intent": "side_effects"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"indapamide\",\"dose_mg\":null}],\"parsed_patient\":{\"patient\":{\"age\":38,\"sex\":\"female\",\"weight_kg\":55.9,\"baseline\":{\"systolic_bp\":140,\"diastolic_bp\":99,\"heart_rate\":76,\"egfr\":90,\"serum_potassium\":4.2},\"comorbidities\":[\"none\"],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\"]},\"question_intent\":\"side_effects\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": false
+      },
+      {
+        "user_query": "Can you assess this regimen? ramipril 25mg and losartan - would this work for a 43-year-old M weighing 59.5kg, BP 140/100.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "ramipril",
+              "dose_mg": 25
+            },
+            {
+              "raw_name": "losartan",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 43,
+              "sex": "male",
+              "weight_kg": 59.5,
+              "baseline": {
+                "systolic_bp": 140,
+                "diastolic_bp": 100,
+                "heart_rate": 78,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "baseline.heart_rate"
+            ]
+          },
+          "question_intent": "general"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"ramipril\",\"dose_mg\":25},{\"raw_name\":\"losartan\",\"dmg\":null}],\"parsed_patient\":{\"patient\":{\"age\":43,\"sex\":\"male\",\"weight_kg\":59.5,\"baseline\":{\"systolic_bp\":140,\"diastolic_bp\":100,\"heart_rate\":78,\"egfr\":90,\"serum_potassium\":4.2},\"comorbiditiesities\":[\"none\"],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\",\"baseline.heart_rate\"]},\"question_intent\":\"general\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "Is this better than the usual combo? I'm considering valsartan 40mg and indpaamide 2mg for a 54-year-old F weighing 82.2kg, BP 146/103, heart rate 60, with CKD and COPD.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "valsartan",
+              "dose_mg": 40
+            },
+            {
+              "raw_name": "indpaamide",
+              "dose_mg": 2
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 54,
+              "sex": "female",
+              "weight_kg": 82.2,
+              "baseline": {
+                "systolic_bp": 146,
+                "diastolic_bp": 103,
+                "heart_rate": 60,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "chronic_kidney_disease",
+                "asthma_copd"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "compare_to_standard"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"valsartan\",\"dose_mg\":40},{\"raw_name\":\"indpaamide\",\"dose_mg\":2},{\"parsed_patient\":{\"patient\":{\"age\":54,\"sex\":\"female\",\"weight_kg\":82.2,\"baseline\":{\"systolic_bp\":146,\"diastolic_bp\":103,\"heart_rate\":60,\"egfr\":90,\"serum_potassium\":4.2},\"comorbiditiesities\":[\"chronic_kidney_disease\",\"asthma_copd\"],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\"]},\"question_intent\":\"compare_to_standard\"}}",
+        "valid_json": false,
+        "schema_valid": false,
+        "exact_field_match": false
+      },
+      {
+        "user_query": "What blood pressure reduction can I expect? Evaluating diltiazem for patient: 85yo M, presenting with BP of 98/73, with diabetic.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "diltiazem",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 85,
+              "sex": "male",
+              "weight_kg": 80,
+              "baseline": {
+                "systolic_bp": 98,
+                "diastolic_bp": 73,
+                "heart_rate": 78,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "type2_diabetes"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "weight_kg",
+              "baseline.heart_rate"
+            ]
+          },
+          "question_intent": "efficacy"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"diltiazem\",\"dose_mg\":null}],\"parsed_patient\":{\"patient\":{\"age\":85,\"sex\":\"male\",\"weight_kg\":80,\"baseline\":{\"systolic_bp\":98,\"diastolic_bp\":73,\"heart_rate\":78,\"egfr\":90,\"serum_potassium\":4.2},\"comorbidities",
+        "valid_json": false,
+        "schema_valid": false,
+        "exact_field_match": false
+      },
+      {
+        "user_query": "Is this better than the usual combo? Evaluating diltiazem for a 58-year-old F, 93.2kg, BP 141/102 and HR 57.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "diltiazem",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 58,
+              "sex": "female",
+              "weight_kg": 93.2,
+              "baseline": {
+                "systolic_bp": 141,
+                "diastolic_bp": 102,
+                "heart_rate": 57,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "compare_to_standard"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"diltiazem\",\"dose_mg\":null}],\"parsed_patient\":{\"patient\":{\"age\":58,\"sex\":\"female\",\"weight_kg\":93.2,\"baseline\":{\"systolic_bp\":141,\"diastolic_bp\":102,\"heart_rate\":57,\"egfr\":90,\"serum_potassium\":4.2},\"comorbidities\":s,\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\"]},\"question_intent\":\"compare_to_standard\"}",
+        "valid_json": false,
+        "schema_valid": false,
+        "exact_field_match": false
+      },
+      {
+        "user_query": "What are the risks? What if I prescribed valsarttan 50mg to patient: 44yo M, presenting with BP of 135/97, heart rate 72, with chronic kidney disease.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "valsarttan",
+              "dose_mg": 50
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 44,
+              "sex": "male",
+              "weight_kg": 80,
+              "baseline": {
+                "systolic_bp": 135,
+                "diastolic_bp": 97,
+                "heart_rate": 72,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "chronic_kidney_disease"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "weight_kg"
+            ]
+          },
+          "question_intent": "side_effects"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"valsarttan\",\"dose_mg\":50}],\"parsed_patient\":{\"patient\":{\"age\":44,\"sex\":\"male\",\"weight_kg\":80,\"baseline\":{\"systolic_bp\":135,\"diastolic_bp\":97,\"heart_rate\":72,\"egfr\":90,\"serum_potassium\":4.2},\"comorbidities\":[\"chronic_kidney_disease\"],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\",\"weight_kg\"]},\"question_intent\":\"side_effects\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "What are the risks? What if I prescribed chlorthalidone and irbesartan to patient: 57yo F, presenting with BP of 162/100.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "chlorthalidone",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "irbesartan",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 57,
+              "sex": "female",
+              "weight_kg": 80,
+              "baseline": {
+                "systolic_bp": 162,
+                "diastolic_bp": 100,
+                "heart_rate": 78,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "weight_kg",
+              "baseline.heart_rate"
+            ]
+          },
+          "question_intent": "side_effects"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"chlorthalidone\",\"dose_mg\":null},{\"raw_name\":\"irbesartan\",\"dose_mg\":null}],\"parsed_patient\":{\"patient\":{\"age\":57,\"sex\":\"female\",\"weight_kg\":80,\"baseline\":{\"systolic_bp\":162,\"diastolic_bp\":100,\"heart_rate\":78,\"egfr\":90,\"serum_potassium\":4.2},\"comorbidities\":[],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\",\"weight_kg\",\"baseline.heart_rate\"]},\"question_intent\":\"side_effects\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "How does this compare to standard first-line therapy? Evaluating indapamide and losartan 20mg for a 73-year-old M, 88.3kg, BP 120/79, heart rate 89.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "indapamide",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "losartan",
+              "dose_mg": 20
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 73,
+              "sex": "male",
+              "weight_kg": 88.3,
+              "baseline": {
+                "systolic_bp": 120,
+                "diastolic_bp": 79,
+                "heart_rate": 89,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "compare_to_standard"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"indapamide\",\"dose_mg\":null},{\"raw_name\":\"losartan\",\"dmg\":20}],\"parsed_patient\":{\"patient\":{\"age\":73,\"sex\":\"male\",\"weight_kg\":88.3,\"baseline\":{\"systolic_bp\":120,\"diastolic_bp\":79,\"heart_rate\":89,\"egfr\":90,\"serum_potassium\":4.2},\"comorbiditiesties\":[\"none\"],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\"]},\"question_intent\":\"compare_to_standard\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "Is this better than the usual combo? What if I prescribed enalapril to a female in their 40s, 67.1kg, BP reading 149 over 105.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "enalapril",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 43,
+              "sex": "female",
+              "weight_kg": 67.1,
+              "baseline": {
+                "systolic_bp": 149,
+                "diastolic_bp": 105,
+                "heart_rate": 56,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "compare_to_standard"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"enalapril\",\"dose_mg\":null}],\"parsed_patient\":{\"patient\":{\"age\":43,\"sex\":\"female\",\"weight_kg\":67.1,\"baseline\":{\"systolic_bp\":149,\"diastolic_bp\":105,\"heart_rate\":94,\"egfr\":90,\"serum_potassium\":4.2},\"comorbidities\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\"]},\"question_intent\":\"compare_to_standard\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "What side effects should I watch for? losartan 20mg - would this work for 76 year old female, current vitals 148/96 mmHg, heart rate 55, with asthma.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "losartan",
+              "dose_mg": 20
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 76,
+              "sex": "female",
+              "weight_kg": 102.1,
+              "baseline": {
+                "systolic_bp": 148,
+                "diastolic_bp": 96,
+                "heart_rate": 55,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "asthma_copd"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "side_effects"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"losartan\",\"dose_mg\":2}],\"parsed_patient\":{\"patient\":{\"age\":76,\"sex\":\"female\",\"weight_kg\":63.7,\"baseline\":{\"systolic_bp\":148,\"diastolic_bp\":96,\"heart_rate\":55,\"egfr\":90,\"serum_potassium\":4.2},\"comorbidities\":[\"asthma_copd\"],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\"]},\"question_intent\":\"side_effects\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "What would happen if I gave this? What if I prescribed irbeartan and nifedpiine to 74 year old female, current vitals 106/72 mmHg and HR 62.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "irbeartan",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "nifedpiine",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 74,
+              "sex": "female",
+              "weight_kg": 93.2,
+              "baseline": {
+                "systolic_bp": 106,
+                "diastolic_bp": 72,
+                "heart_rate": 62,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "general"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"irbeartan\",\"dose_mg\":null},{\"raw_name\":\"nifedpiine\",\"dose_mg\":null}],\"parsed_patient\":{\"patient\":{\"age\":74,\"sex\":\"female\",\"weight_kg\":71.3,\"baseline\":{\"systolic_bp\":106,\"diastolic_bp\":72,\"heart_rate\":62,\"egfr\":90,\"serum_potassium\":4.2},\"comorbiditiesities\":[\"none\"],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\"]},\"question_intent\":\"general\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "Can you assess this regimen? Evaluating hydrochlorothiazide and amlodipine for patient: 81yo M, presenting with BP of 158/94 and HR 66, with HF.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "hydrochlorothiazide",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "amlodipine",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 81,
+              "sex": "male",
+              "weight_kg": 80,
+              "baseline": {
+                "systolic_bp": 158,
+                "diastolic_bp": 94,
+                "heart_rate": 66,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "heart_failure"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "weight_kg"
+            ]
+          },
+          "question_intent": "general"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"hydrochlorothiazide\",\"dose_mg\":null},{\"raw_name\":\"amlodipine\",\"dose_mg\":null}],\"parsed_patient\":{\"patient\":{\"age\":81,\"sex\":\"male\",\"weight_kg\":80,\"baseline\":{\"systolic_bp\":158,\"diastolic_bp\":94,\"heart_rate\":66,\"egfr\":90,\"serum_potassium\":4.2},\"comorbiditiesities\":[\"heart_failure\"],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\"]},\"question_intent\":\"general\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "What are the risks? I'm considering losartan and indapamide for a 46-year-old M, BP 118/78 and HR 65.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "losartan",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "indapamide",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 46,
+              "sex": "male",
+              "weight_kg": 80,
+              "baseline": {
+                "systolic_bp": 118,
+                "diastolic_bp": 78,
+                "heart_rate": 65,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium",
+              "weight_kg"
+            ]
+          },
+          "question_intent": "side_effects"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"losartan\",\"dose_mg\":null},{\"raw_name\":\"indapamide\",\"dose_mg\":null}],\"parsed_patient\":{\"patient\":{\"age\":46,\"sex\":\"male\",\"weight_kg\":80,\"baseline\":{\"systolic_bp\":118,\"diastolic_bp\":78,\"heart_rate\":65,\"egfr\":90,\"serum_potassium\":4.2},\"comorbidities\":s,\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\"]},\"question_intent\":\"side_effects\"}",
+        "valid_json": false,
+        "schema_valid": false,
+        "exact_field_match": false
+      },
+      {
+        "user_query": "Is this better than the usual combo? I'm considering irbesartan 50mg and nifedipine 25mg for patient: 82yo F, roughly 61.4kg, presenting with BP of 138/80, heart rate 71.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "irbesartan",
+              "dose_mg": 50
+            },
+            {
+              "raw_name": "nifedipine",
+              "dose_mg": 25
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 82,
+              "sex": "female",
+              "weight_kg": 61.4,
+              "baseline": {
+                "systolic_bp": 138,
+                "diastolic_bp": 80,
+                "heart_rate": 71,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "compare_to_standard"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"irbesartan\",\"dge\":50},{\"raw_name\":\"nifedipine\",\"dose_mg\":25}],\"parsed_patient\":{\"patient\":{\"age\":82,\"sex\":\"female\",\"weight_kg\":61.4,\"baseline\":{\"systolic_bp\":138,\"diastolic_bp\":80,\"heart_rate\":71,\"egfr\":90,\"serum_potassium\":4.2},\"comorbiditiesities\":[\"none\"],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\"]},\"question_intent\":\"compare_to_standard\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      },
+      {
+        "user_query": "Talk me through this case? enalapril 2mg and hydrochlorothiazide 20mg - would this work for a male in their 60s, 103.4kg, BP reading 138 over 92.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "enalapril",
+              "dose_mg": 2
+            },
+            {
+              "raw_name": "hydrochlorothiazide",
+              "dose_mg": 20
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 64,
+              "sex": "male",
+              "weight_kg": 103.4,
+              "baseline": {
+                "systolic_bp": 138,
+                "diastolic_bp": 92,
+                "heart_rate": 61,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "general"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"enalapril\",\"dose_mg\":2},{\"raw_name\":\"hydrochlorothiazide\",\"dose_mg\":2}],\"parsed_patient\":{\"patient\":{\"age\":69,\"sex\":\"male\",\"weight_kg\":103.4,\"baseline\":{\"systolic_bp\":138,\"diastolic_bp\":92,\"heart_rate\":89,\"egfr\":90,\"serum_potassium\":4.2},\"comorbiditiesities\":[\"none\"],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\"]},\"question_intent\":\"general\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": false
+      },
+      {
+        "user_query": "What would happen if I gave this? I'm considering ramipril and amlodipine for a 58-year-old M, 58.2kg, BP 105/77, heart rate 88.",
+        "expected": {
+          "compounds": [
+            {
+              "raw_name": "ramipril",
+              "dose_mg": null
+            },
+            {
+              "raw_name": "amlodipine",
+              "dose_mg": null
+            }
+          ],
+          "parsed_patient": {
+            "patient": {
+              "age": 58,
+              "sex": "male",
+              "weight_kg": 58.2,
+              "baseline": {
+                "systolic_bp": 105,
+                "diastolic_bp": 77,
+                "heart_rate": 88,
+                "egfr": 90,
+                "serum_potassium": 4.2
+              },
+              "comorbidities": [
+                "none"
+              ],
+              "current_medications": []
+            },
+            "defaulted_fields": [
+              "baseline.egfr",
+              "baseline.serum_potassium"
+            ]
+          },
+          "question_intent": "general"
+        },
+        "generated_raw": "{\"compounds\":[{\"raw_name\":\"ramipril\",\"dose_mg\":null},{\"raw_name\":\"amlodipine\",\"dose_mg\":null}],\"parsed_patient\":{\"patient\":{\"age\":58,\"sex\":\"male\",\"weight_kg\":58.2,\"baseline\":{\"systolic_bp\":105,\"diastolic_bp\":77,\"heart_rate\":88,\"egfr\":90,\"serum_potassium\":4.2},\"comorbiditiesities\":[\"none\"],\"current_medications\":[]},\"defaulted_fields\":[\"baseline.egfr\",\"baseline.serum_potassium\"]},\"question_intent\":\"general\"}",
+        "valid_json": true,
+        "schema_valid": true,
+        "exact_field_match": true
+      }
+    ]
+  }
+}
