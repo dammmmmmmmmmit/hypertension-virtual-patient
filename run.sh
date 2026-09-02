@@ -10,7 +10,20 @@
 set -uo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
+# Frontend pinned to 3001, not 3000 — this machine permanently runs an
+# unrelated project's Docker container (acs-ai-dev-langgraph-api-1) bound
+# to host port 3000. A plain "does something respond on :3000" check
+# false-positives against that container (it answers real HTTP requests
+# with its own JSON), which silently made this script think the frontend
+# was already up when it was actually hitting the wrong app entirely —
+# found live, not hypothetical. is_content_up() below guards against the
+# same mistake happening again on whatever port ends up in use.
+FRONTEND_PORT=3001
+
 is_up() { curl -s -o /dev/null --max-time 2 "$1"; }
+# Verifies the response body actually contains something unique to THIS
+# app, not just that some server answered — see the port-3000 note above.
+is_content_up() { curl -s --max-time 2 "$1" 2>/dev/null | grep -q "$2"; }
 
 echo "==> Docker containers (Postgres :5433, Redis :6379, Qdrant :6333)"
 for c in vps-pg vps-redis vps-qdrant; do
@@ -51,8 +64,8 @@ else
   echo "    starting... (log: /tmp/vps-backend.log)"
 fi
 
-echo "==> Frontend (Next.js, :3000)"
-if is_up http://localhost:3000; then
+echo "==> Frontend (Next.js, :$FRONTEND_PORT)"
+if is_content_up "http://localhost:$FRONTEND_PORT" "Virtual Patient Drug-Response Simulator"; then
   echo "    already running"
 else
   if [ ! -d frontend/node_modules ]; then
@@ -69,15 +82,15 @@ back_ok=0
 front_ok=0
 for _ in $(seq 1 40); do
   is_up http://localhost:8000/docs && back_ok=1
-  is_up http://localhost:3000 && front_ok=1
+  is_content_up "http://localhost:$FRONTEND_PORT" "Virtual Patient Drug-Response Simulator" && front_ok=1
   [ "$back_ok" = 1 ] && [ "$front_ok" = 1 ] && break
   sleep 1
 done
 
 echo ""
-if [ "$back_ok" = 1 ]; then echo "Backend:  http://localhost:8000/docs   [OK]"
-else echo "Backend:  http://localhost:8000/docs   [NOT UP YET — check /tmp/vps-backend.log]"; fi
-if [ "$front_ok" = 1 ]; then echo "Frontend: http://localhost:3000        [OK]"
-else echo "Frontend: http://localhost:3000        [NOT UP YET — check /tmp/vps-frontend.log]"; fi
+if [ "$back_ok" = 1 ]; then echo "Backend:  http://localhost:8000/docs        [OK]"
+else echo "Backend:  http://localhost:8000/docs        [NOT UP YET — check /tmp/vps-backend.log]"; fi
+if [ "$front_ok" = 1 ]; then echo "Frontend: http://localhost:$FRONTEND_PORT        [OK]"
+else echo "Frontend: http://localhost:$FRONTEND_PORT        [NOT UP YET — check /tmp/vps-frontend.log]"; fi
 echo ""
 echo "Run ./stop.sh to stop the backend + frontend (Docker containers and Ollama are left running)."

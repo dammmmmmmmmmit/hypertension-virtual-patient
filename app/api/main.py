@@ -36,12 +36,20 @@ app = FastAPI(
     description="Hypertension-only screening tool. Not clinical guidance. See README/DECISIONS.md.",
 )
 
-# Local dev only — the frontend runs on a different origin (localhost:3000)
+# Local dev only — the frontend runs on a different origin (localhost:3001)
 # than this API (localhost:8000). Both are localhost-only in this project;
 # tighten allow_origins before any real deployment.
+#
+# Pinned to 3001, not 3000 — this machine permanently runs an unrelated
+# project's Docker container (acs-ai-dev-langgraph-api-1) bound to host
+# port 3000, so Next.js is configured (frontend/package.json's dev
+# script) to always use 3001 rather than relying on its silent
+# auto-bump-to-next-free-port behavior, which was masking the conflict
+# (that container answers HTTP requests too, so naive "does something
+# respond on 3000" health checks were false-positiving against it).
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["http://localhost:3001"],
     allow_methods=["*"],
     allow_headers=["*"],
 )

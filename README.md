@@ -38,7 +38,7 @@ ollama pull qwen2.5:14b-instruct
 
 `run.sh` starts Postgres/Redis/Qdrant (creating the containers on first run),
 Ollama, the FastAPI backend, and the Next.js frontend — safe to re-run any
-time, it skips anything already up. Then open **http://localhost:3000**.
+time, it skips anything already up. Then open **http://localhost:3001**.
 
 Stop the backend/frontend with `./stop.sh` (Docker containers and Ollama are
 left running, since those are cheap to keep warm).
